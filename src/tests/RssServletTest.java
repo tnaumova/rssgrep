@@ -14,6 +14,7 @@ public class RssServletTest extends TestCase {
 
     public void testSmoke() {
         RssServlet servlet = new RssServlet();
+        assertEquals('1', '1');
     }
 
 }
