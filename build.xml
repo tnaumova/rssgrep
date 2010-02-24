@@ -1,31 +1,24 @@
 <project>
-    <property name="sdk.dir" location="/home/mkotsur/.appengine/java"/>
+    <property name="sdk.dir" location="${user.home}/.appengine/java"/>
     <property name="junit.dir" location="/usr/share/java/"/>
 
     <import file="${sdk.dir}/config/user/ant-macros.xml"/>
 
     <path id="project.classpath">
+
         <pathelement location="war/WEB-INF/classes"/>
-
-        <pathelement location="war/WEB-INF/classes/tests"/>
-
+        
         <fileset dir="war/WEB-INF/lib">
             <include name="**/*.jar"/>
         </fileset>
         <fileset dir="${sdk.dir}/lib">
             <include name="shared/**/*.jar"/>
         </fileset>
-        <fileset dir="/usr/share/java/">
-            <include name="**/junit4.jar"/>
-        </fileset>
     </path>
 
 
-    <target name="copyjars"
-            description="Copies the App Engine JARs to the WAR.">
-        <copy
-                todir="war/WEB-INF/lib"
-                flatten="true">
+    <target name="copyjars" description="Copies the App Engine JARs to the WAR.">
+        <copy todir="war/WEB-INF/lib" flatten="true">
             <fileset dir="${sdk.dir}/lib/user">
                 <include name="**/*.jar"/>
             </fileset>
@@ -51,13 +44,13 @@
 
     <target name="datanucleusenhance" depends="compile"
             description="Performs JDO enhancement on compiled data classes.">
-        <enhance_war war="war"/>
+        <enhance_war war="war" />
     </target>
 
 
     <target name="runserver" depends="datanucleusenhance"
             description="Starts the development server.">
-        <dev_appserver war="war"/>
+        <dev_appserver war="war" />
     </target>
 
 
@@ -71,5 +64,14 @@
         </junit>
     </target>
 
+
+<target name="deploy_resources" description="Deploy static resources">
+    <taskdef name="click_deploy"
+             classname="org.apache.click.tools.deploy.DeployTask"
+             classpathref="project.classpath"/>
+
+    <click_deploy dir="war/WEB-INF"
+            todir="war"/>
+</target>
 
 </project>
