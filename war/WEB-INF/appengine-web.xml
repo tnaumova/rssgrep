@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-    <application>Rss grep</application>
+    <application>rssgrep</application>
     <version>1</version>
+
+    <!-- Enable HttpSession usage -->
+    <sessions-enabled>true</sessions-enabled>
+
+    <!-- Exclude *.htm files from being served as static files by GAE,
+            because the *.htm extension is mapped to ClickServlet. -->
+    <static-files>
+        <exclude path="**.htm" />
+    </static-files>
+
 </appengine-web-app>
