@@ -9,10 +9,11 @@ import org.apache.click.control.Form;
 import org.apache.click.control.Submit;
 import org.apache.click.control.TextField;
 
+import pages.element.Border;
 import pages.inner.AnonymousFilterBuilder;
 
 
-public class Index extends Page {
+public class Index extends Border {
 
     public Form rssUrlForm = new Form();
 
