@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<click-app>
 
+<click-app charset="UTF-8" locale="en">
+
+  <pages package="com.mycorp.page" autobinding="annotation"/>
 
   <pages>
     <page path="index.htm" classname="pages.Index"></page>
