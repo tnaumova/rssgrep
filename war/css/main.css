@@ -1,22 +1,57 @@
 body {
 	font-family: Arial;
+	background: #DCE4EC;
+}
+
+#generic {
+    border: 1px solid #202020;
+    background-color: white;
+    width: 990px;
+    min-hright: 100%;
+    text-align: left;
+    margin: 0 auto;
 }
 
 #header {
 	background-color: navy;
 }
 
+#logo {
+    margin: 30px 0px;
+    text-align: center;
+}
+
+#container {
+	padding: 10px 30px;
+	position: relative;
+	z-index: 0;
+}
+
+#rssUrlForm-fields {
+    width: 100%;
+}
+
+.buttons {
+    width: 100%;
+}
+
+#rssUrlForm_rssUrlFormSubmit {
+    float: right;
+}
+
+#footer {
+    padding: 10px 5px;
+}
+
+#footer img {
+    border: 0px;
+    margin-left: 10px;
+}
+
 #title {
 	color: white;
 	font-size: 18px;
 	font-weight: bolder;
-}
-
-#container {
-	padding-top: 1em;
-	padding-left: 1.5em;
-	position: relative;
-	z-index: 0;
 }
 
 h3.title {

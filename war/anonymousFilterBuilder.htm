@@ -1,1 +1,12 @@
+#if ($msg)
+  <div id="msgDiv"> $msg </div>
+#end
 <h1>You are about to edit: $sourceRss</h1>
+        <div>$filterForm</div>
+
+<table>
+#foreach( $entry in $entries )
+    <tr><td>$entry.getTitle()</td><td>|| $entry.getDescription().getValue() ||</td></tr>
+#end
+
+</table>

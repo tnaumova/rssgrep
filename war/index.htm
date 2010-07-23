@@ -1,10 +1,12 @@
-<div id="header">
-    <span id="title">Home</span>
-</div>
+
 
 <div id="logo">
     <img src="/images/sieve_logo.jpg" alt="RssSieve logo"/>
 </div>
+
+#if ($msg)
+  <div id="msgDiv"> $msg </div>
+#end
 <div id="container">
     $rssUrlForm
 </div>
