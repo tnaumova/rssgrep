@@ -1,6 +1,10 @@
 <project>
-    <property name="sdk.dir" location="${user.home}/.appengine/java"/>
-    <property name="junit.dir" location="/usr/share/java/"/>
+    <property name="sdk.dir" location="${user.home}/appengine/java"/>
+    <property name="junit.dir" location="/usr/local/lib/"/>
+    <property name="click.dir" location="/usr/local/lib/click-2.2.0/"/>
+    <property name="rome.dir" location="/usr/local/lib/"/>
+    <property name="jdom.dir" location="/usr/local/lib/jdom/build/"/>
+
 
     <import file="${sdk.dir}/config/user/ant-macros.xml"/>
 
@@ -17,10 +21,26 @@
     </path>
 
 
-    <target name="copyjars" description="Copies the App Engine JARs to the WAR.">
+    <target name="copyjars" description="Copies the dependencies to the WAR.">
+
+        <mkdir dir="war/WEB-INF/lib"/>
+
         <copy todir="war/WEB-INF/lib" flatten="true">
             <fileset dir="${sdk.dir}/lib/user">
-                <include name="**/*.jar"/>
+                <include name="*.jar"/>
+            </fileset>
+            <fileset dir="${click.dir}">
+                <include name="dist/*.jar"/>
+                <include name="lib/*.jar"/>
+            </fileset>
+            <fileset dir="${rome.dir}">
+                <include name="rome-1.0.jar"/>
+            </fileset>
+            <fileset dir="${junit.dir}">
+                <include name="*junit*.jar"/>
+            </fileset>
+            <fileset dir="${jdom.dir}">
+                <include name="/jdom.jar"/>
             </fileset>
         </copy>
     </target>
