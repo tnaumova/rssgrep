@@ -1,19 +1,13 @@
 package pages;
 
-import com.sun.syndication.feed.synd.SyndEntry;
-import com.sun.syndication.feed.synd.SyndFeed;
-import com.sun.syndication.io.SyndFeedInput;
-import com.sun.syndication.io.XmlReader;
+import java.util.HashMap;
+
 import org.apache.click.control.Form;
 import org.apache.click.control.Submit;
 import org.apache.click.control.TextField;
+
 import pages.element.Border;
 import pages.inner.AnonymousFilterBuilder;
-import service.Logger;
-
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
 
 public class Index extends Border {
 

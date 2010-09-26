@@ -1,11 +1,7 @@
 <project>
-    <property name="sdk.dir" location="${user.home}/appengine/java"/>
-    <property name="junit.dir" location="/usr/local/lib/"/>
-    <property name="click.dir" location="/usr/local/lib/click-2.2.0/"/>
-    <property name="rome.dir" location="/usr/local/lib/"/>
-    <property name="jdom.dir" location="/usr/local/lib/jdom/build/"/>
-
-
+	<property file="build/my.properties" />
+	<property file="build/build.properties" />
+	
     <import file="${sdk.dir}/config/user/ant-macros.xml"/>
 
     <path id="project.classpath">
@@ -40,12 +36,10 @@
                 <include name="*junit*.jar"/>
             </fileset>
             <fileset dir="${jdom.dir}">
-                <include name="/jdom.jar"/>
+                <include name="jdom.jar"/>
             </fileset>
         </copy>
     </target>
-
-
     <target name="compile" depends="copyjars"
             description="Compiles Java source and copies other source files to the WAR.">
         <mkdir dir="war/WEB-INF/classes"/>
@@ -88,6 +82,7 @@
 
 
     <target name="test" depends="compile">
+    	<echo message="${build.number}"/>
         <junit fork="yes" haltonfailure="yes">
             <classpath refid="project.classpath"/>
             <formatter type="plain" usefile="false"/>

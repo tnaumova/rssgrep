@@ -4,3 +4,6 @@ war/WEB-INF/classes/*
 war/WEB-INF/lib/*
 war/click
 out/*
+.classpath
+.project
+build/my.properties
